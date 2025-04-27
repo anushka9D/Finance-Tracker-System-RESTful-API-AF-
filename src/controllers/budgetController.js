@@ -141,8 +141,8 @@ const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
   auth: {
-    user: 'kalumgamage001@gmail.com', // our email
-    pass: 'oitvqqryudozpwaw',  // our email-password 
+    user: '', // our email
+    pass: '',  // our email-password 
   },
 });
 
@@ -163,7 +163,7 @@ exports.notifyBudgetExceeded = async (req, res) => {
   if (notifications.length > 0) {
     
     const mailOptions = {
-      from: 'kalumgamage001@gmail.com', // Our email address
+      from: '', // Our email address
       to: user.username, // The user email address
       subject: `Budget Exceeded for ${budgets.map(b => b.category)}`,
       text: `Hello ${user.username},\n\nYou have exceeded your budget for the ${budgets.map(b => b.category)} category. Please review your spending.\n\nBest regards,\n Finance Tracker App Team`
@@ -214,7 +214,7 @@ cron.schedule('0 0 * * *', async () => {  // Runs daily at midnight
           
           // Prepare email message
           const mailOptions = {
-            from: 'kalumgamage001@gmail.com', // Our email address
+            from: '', // Our email address
             to: user.username, // The user email address
             subject: `Budget Exceeded for ${budgets.map(b => b.category)}`,
             text: `Hello ${user.username},\n\nYou have exceeded your budget for the ${budgets.map(b => b.category)} category. Please review your spending.\n\nBest regards,\n Finance Tracker App Team`
